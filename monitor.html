@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>数据湖管理系统</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="dist/css/my.css">
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>DL</b>MS</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>DataLake</b></span>
+    </a>
+    <!-- Header Navbar: style can be founsd in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+          </li>
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#">
+              <img src="dist/img/avatar5.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">管理员</span>
+            </a>
+
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>管理员</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+        </div>
+      </div>
+
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="treeview">
+          <a href="#"><i class="fa fa-fw fa-cubes"></i> <span>数据汇聚</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="index.html"><i class="fa fa-circle-o"></i> 数据湖连接</a></li>
+            <li><a href="management.htmlv"><i class="fa fa-circle-o"></i> 数据湖管理</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-suitcase"></i> <span>数据资产</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="data_map.html"><i class="fa fa-circle-o"></i>数据地图</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="glyphicon glyphicon-th-large"></i> <span>数据服务</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>API管理</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>测试应用</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>API计量</a></li> 
+          </ul>
+        </li>
+        <li class="treeview active">
+          <a href="#"><i class="fa fa-share-alt"></i> <span>数据应用</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="monitor.html"><i class="fa fa-circle-o"></i>数据湖监控</a></li>
+            <li><a href="analyse.html"><i class="fa fa-circle-o"></i>数据分析</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>离线半结构化数据应用</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>实时非结构数据应用</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-users"></i> <span>用户管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>用户权限调整</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>用户更新</a></li> 
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-object-ungroup"></i> <span>权限管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>表权限管理</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>服务权限管理</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        数据应用：监控
+        <small>Data Application: Monitoring</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+    	<div class="row">
+    		<div class="col-md-8">
+    			<div class="box box-primary">
+    				<div class="box-header ">
+    					<h4 class="box-title"><i class="fa fa-bar-chart"></i> 数据流量</h4>
+    				</div>
+    				<div class="box-body">
+    					<div class="row">
+    						<div class="col-md-6 text-center">
+    							<div style="min-height: 150px" id="meter1"></div>
+			                </div>
+			                <div class="col-md-6 text-center">
+			                	<div style="min-height: 150px" id="meter2"></div>
+			                </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="col-md-4">
+    			<div class="box box-primary">
+    				<div class="box-header ">
+    					<h4 class="box-title"><i class="fa fa-tasks"></i> 运行状态监控 </h4>
+    				</div>
+    				<div class="box-body row">
+    					<div class="col-md-6">
+    						<p class="key">数据源数</p>
+    						<p class="value">23</p>
+    					</div>
+    					<div class="col-md-6">
+    						<p class="key">实体数目</p>
+    						<p class="value">207</p>
+    					</div>
+    					<div class="col-md-6">
+    						<p class="key">关系数目</p>
+    						<p class="value">1474</p>
+    					</div>
+    					<div class="col-md-6">
+    						<p class="key">属性数目</p>
+    						<p class="value">785</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-6">
+			<div class="box box-primary">
+				<div class="box-header ">
+					<h4 class="box-title"><i class="fa fa-pie-chart"></i> 分主题检索占比 </h4>
+				</div>
+				<div class="box-body">
+					<div id="chart1" style="min-height: 280px"></div>
+				</div>
+    		</div>
+    		</div>
+    		<div class="col-md-6">
+			<div class="box box-primary">
+				<div class="box-header ">
+					<h4 class="box-title"><i class="fa fa-pie-chart"></i> 数据源检索占比 </h4>
+				</div>
+				<div class="box-body">
+					<div id="chart2" style="min-height: 280px"></div>
+				</div>
+    		</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.1/echarts.min.js"></script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+<script>
+$(function () {
+    /* gauge chart*/
+    var meter1Dom = document.getElementById('meter1');
+    var meter2Dom = document.getElementById('meter2');
+    var meter1 = echarts.init(meter1Dom);
+    var meter2 = echarts.init(meter2Dom);
+    meter1.setOption({
+    	series:[{
+    		type:"gauge",
+    		name:"今日查询数/总查询数",
+    		min: 0,
+        	max: 1800,
+        	startAngle: 190,
+        	endAngle:-10,
+        	splitNumber: 6,
+        	center:['50%','65%'],
+    		progress:{
+    			show: true
+    		},
+    		axisTick:{
+    			distance:-20
+    		},
+    		splitLine:{
+    			distance: -23
+    		},
+    		axisLabel:{
+    			distance:-25
+    		},
+    		detail:{
+    			valueAnimation:true,
+    			formatter: '{value}',
+    			fontSize:12,
+    			offsetCenter: [0, '45%'],
+    		},
+    		data:[{
+    			value:177,
+    			name:'今日查询数',
+    			title:{
+    				offsetCenter:[0,'75%'],
+    				fontSize:15
+    			}
+    		}]
+    	}]
+    });
+    meter2.setOption({
+    	series:[{
+    		type:"gauge",
+    		name:"被访问文件数/总文件数",
+    		min: 0,
+        	max: 50,
+        	startAngle: 190,
+        	endAngle:-10,
+        	splitNumber: 5,
+        	center:['50%','65%'],
+    		progress:{
+    			show: true
+    		},
+    		axisTick:{
+    			distance:-20
+    		},
+    		splitLine:{
+    			distance: -23
+    		},
+    		axisLabel:{
+    			distance:-25
+    		},
+    		detail:{
+    			valueAnimation:true,
+    			formatter: '{value}',
+    			fontSize:12,
+    			offsetCenter: [0, '45%'],
+    		},
+    		data:[{
+    			value:12,
+    			name:'今日访问文件数',
+    			title:{
+    				offsetCenter:[0,'75%'],
+    				fontSize:15
+    			}
+    		}]
+    	}]
+    });
+    /* pie chart */
+    var chart1Dom = document.getElementById('chart1');
+    var chart2Dom = document.getElementById('chart2');
+    var chart1 = echarts.init(chart1Dom);
+    var chart2 = echarts.init(chart2Dom);
+    var themeRatios = [
+        {value: 581, name: '人', ratio:0.191 },
+        {value: 735, name: '流程', ratio:0.241 },
+        {value: 1048, name: '元器件', ratio:0.344},
+        {value: 284, name: '管理', ratio:0.093},
+        {value: 400, name: '环境设备', ratio:0.131}
+    ]
+    chart1.setOption({
+	   	tooltip: {
+	        trigger: 'item'
+	    },    
+	    legend: {
+	        orient: 'vertical',
+	        left: 'left',
+	    },
+	    series: [{
+            name: '主题',
+            type: 'pie',
+            radius: '60%',
+            center:['60%','50%'],
+            data: themeRatios,
+            label:{
+                formatter: function(params){
+		        	let ratio = params.data.ratio;
+		        	return (ratio*100).toFixed(2)+'%'
+		        }	
+		    },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+	})
+	var srcRatios = [
+        {value: 1504, name: '元器件检验数据库', ratio:0.5013 },
+        {value: 735, name: '元器件目录', ratio:0.2450 },
+        {value: 219, name: '检验手册', ratio:0.0730},
+        {value: 184, name: '人员管理数据库', ratio:0.0613},
+        {value: 81, name: '供应商目录', ratio:0.0270},
+        {value: 277, name: '设备目录', ratio:0.0923}
+	]
+	chart2.setOption({
+		tooltip: {
+	        trigger: 'item'
+	    },    
+	    legend: {
+	        orient: 'vertical',
+	        left: 'left',
+	    },
+	    series:[{
+	    	name:'数据源',
+            type: 'pie',
+            radius: '60%',
+            center:['60%','50%'],
+            data: srcRatios,
+            label:{
+                formatter: function(params){
+		        	let ratio = params.data.ratio;
+		        	return (ratio*100).toFixed(2)+'%'
+		        }	
+		    },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+	    }]
+	})
+});
+</script>
+</body>
+</html>

@@ -34,3 +34,7 @@ p.value{
 .treeview-menu>li{
 	font-size:13px;
 }
+.res-head{
+	color:#bbb;
+	margin-top: -5px;
+}

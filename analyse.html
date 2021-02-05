@@ -29,27 +29,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="dist/css/my.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_2199464_jft9zn7cbv.css">
+  <style>
+    div.ner_word{
+      display:inline-block;
+    }
+    div.ner_word>p {
+      font-size: 18px;
+      text-align: center;
+      margin:0 5px;
+    }
+    div.ner_word>p:first-child{
+      text-decoration: underline;
+    }
+    .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .row > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+  </style>
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -213,6 +219,43 @@ desired effect
     <!-- Main content -->
     <section class="content container-fluid">
 
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box box-primary" style="padding:0 20px">
+            <div class="box-header">
+              <h4><i class="iconfont icon-DataAnalysisAI-DPS" style="font-size:30px;color:#888"></i>&nbsp;需求检索</h4>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="search()"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+            <div class="box-body">
+
+              <div class="well" id="ner_result" style="display: none">
+                <p class="res-head">检索语句解析</p>
+                <div style="text-align: center;"></div>
+              </div>
+              <div class="well" id="tag_match" style="display: none">
+                <p class="res-head">语义标签匹配</p>
+                <div id="tags" style="min-height: 300px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box box-default"  style="height: 100%;padding:0 20px">
+            <div class="box-header">
+              <h4><i class="iconfont icon-shujuhugoujiandlf" style="font-size:30px;color:#888"></i>&nbsp;检索结果</h4>
+            </div>
+            <div class="box-body">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -229,9 +272,101 @@ desired effect
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.bootcdn.net/ajax/libs/admin-lte/2.4.18/js/adminlte.min.js"></script>
-
+<!-- echarts 5.0.1 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.1/echarts.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+<script type="text/javascript">
+  var input="适用于高温高压环境的国产元器件"
+  var ner_results = [
+    {"word":"适用","nature":"v"},
+    {"word":"于","nature":"p"},
+    {"word":"高温","nature":"n"},
+    {"word":"高压","nature":"n"},
+    {"word":"环境","nature":"n"},
+    {"word":"的","nature":"u"},
+    {"word":"国产","nature":"b"},
+    {"word":"元器件","nature":"n"}
+  ];
+  let mydata = {
+      "name":"主题",
+      "children":[{
+          "name":"人",
+          "children":[{"name":"元器件供应商"}]
+      },{
+          "name":"元器件",
+          "children":[{"name":"元器件基本信息"}]
+      },{
+          "name":"流程",
+          "children":[{"name":"元器件检测"}]
+          
+      },{
+          "name":"管理"
+      },{
+          "name":"环境设备",
+          "children":[
+              {"name":"实验设备"},
+              {"name":"状态"}, 
+              {"name":"参数"}
+          ]}
+      ]
+  };
+  function search(){
+    var res_ele = $('#ner_result');
+    var result_html = '';
+    for (let w of ner_results){
+      result_html+=`<div class="ner_word"><p>${w.word}</p><p>${w.nature}</div>`
+    }
+    $('#ner_result>div').html(result_html);
+    $('#ner_result').show(500);
+    generateTags()
+  }
+  function generateTags(){
+    $('#tag_match').show(500);
+    var chart = echarts.init(document.getElementById('tags'));
+    mydata.children.forEach(node=>{
+      node.label={fontSize:16,color:'#c19280',fontWeight:'bold'};
+      node.itemStyle={
+        fontSize:20,
+        color:'#c19280',
+        borderColor:'#d48265',
+        shadowColor: 'rgba(212, 0, 0, 0.5)',
+        shadowBlur:2
+      };
+      node.collapsed=true;
+    })
+    chart.setOption({
+      title:[
+        {'text':'〇 维度',top:5, textStyle:{color:'#c19280'}},
+        {"text":'〇 语义标签',top:35, textStyle:{color:'#96768e',fontWeight:'normal'}}
+      ],
+      series:[{
+        type: 'tree',
+        data: [mydata],
+        top:'15%',
+        bottom:'5%',
+        left:5,
+        right:5,
+        orient:'TB',
+        symbolSize:18,
+        expandAndCollapse: true,
+        label: {
+          position: 'top',
+          distance: 5
+        },
+        leaves:{
+          itemStyle:{
+            color:'#96768e'
+          },
+          label:{
+            fontSize:12,
+            color:'#96768e'
+          }
+        }
+      }]
+    })
+  }
+</script>
 </body>
 </html>

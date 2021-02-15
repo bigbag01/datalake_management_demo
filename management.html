@@ -133,7 +133,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="index.html"><i class="fa fa-circle-o"></i> 数据湖连接</a></li>
-            <li class="active"><a href="management.html"><i class="fa fa-circle-o"></i> 数据湖管理</a></li>
+            <li class="active"><a href="management.html"><i class="fa fa-circle-o"></i> 数据源管理</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -143,7 +143,7 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="data_map.html"><i class="fa fa-circle-o"></i>数据地图</a></li>
+            <li><a href="data_map.html"><i class="fa fa-circle-o"></i>数据湖语义建模</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -204,7 +204,7 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        数据湖管理
+        数据源管理
         <small>Data Lake Management</small>
       </h1>
     </section>
@@ -221,7 +221,7 @@ desired effect
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>#</th>
+                  <th>序号</th>
                   <th>数据源名称</th>
                   <th>数据源种类</th>
                   <th>数据源URL</th>
@@ -232,7 +232,7 @@ desired effect
                   <td>1</td>
                   <td>元器件数据库</td>
                   <td>结构化/MySQL</td>
-                  <td>jdbc:mysql://localhost:3306</td>
+                  <td>jdbc:mysql://202.120.30.8:3306</td>
                   <td>元器件属性等基本数据存储库</td>
                   <td><i class="fa fa-edit"></i>&nbsp;&nbsp;<i class="fa fa-times"></i></td>
                 </tr>
@@ -242,6 +242,14 @@ desired effect
                   <td>结构化/CSV</td>
                   <td>hdfs://suppliers/catalog.csv</td>
                   <td>存储供应商信息的表格文件</td>
+                  <td><i class="fa fa-edit"></i>&nbsp;&nbsp;<i class="fa fa-times"></i></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>元器件出入库记录</td>
+                  <td>结构化/Orcale</td>
+                  <td>jdbc:mysql://202.120.40.5:1521</td>
+                  <td>元器件出入库记录存储库</td>
                   <td><i class="fa fa-edit"></i>&nbsp;&nbsp;<i class="fa fa-times"></i></td>
                 </tr>
                 
